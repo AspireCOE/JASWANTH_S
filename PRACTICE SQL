@@ -1,0 +1,1579 @@
+Enter password: ***********
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 8.0.32 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> create database aspire
+    -> ;
+Query OK, 1 row affected (0.05 sec)
+
+mysql> use aspire;
+Database changed
+mysql> show tables;
+Empty set (0.60 sec)
+
+mysql> CREATE TABLE programmer (
+    ->     name VARCHAR2(8) NOT NULL,
+    ->     dob DATE NOT NULL,
+    ->     doj DATE NOT NULL,
+    ->     sex VARCHAR2(1) NOT NULL,
+    ->     prof1 VARCHAR2(8),
+    ->     prof2 VARCHAR2(8),
+    ->     salary NUMBER(4) NOT NULL
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'VARCHAR2(8) NOT NULL,
+    dob DATE NOT NULL,
+    doj DATE NOT NULL,
+    sex VARC' at line 2
+mysql> CREATE TABLE programmer (
+    ->     name VARCHAR2(8) NOT NULL,
+    ->     dob DATE NOT NULL,
+    ->     doj DATE NOT NULL,
+    ->     sex VARCHAR2(1) NOT NULL,
+    ->     prof1 VARCHAR2(8),
+    ->     prof2 VARCHAR2(8),
+    ->     salary NUMBER(4) NOT NULL
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'VARCHAR2(8) NOT NULL,
+    dob DATE NOT NULL,
+    doj DATE NOT NULL,
+    sex VARC' at line 2
+mysql> CREATE TABLE programmer (
+    ->     name VARCHAR(8) NOT NULL,
+    ->     dob DATE NOT NULL,
+    ->     doj DATE NOT NULL,
+    ->     sex VARCHAR(1) NOT NULL,
+    ->     prof1 VARCHAR(8),
+    ->     prof2 VARCHAR(8),
+    ->     salary INT NOT NULL
+    -> );
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> INSERT INTO programmer (name, dob, doj, sex, prof1, prof2, salary) VALUES
+    -> ('John', '1990-05-15', '2015-08-20', 'M', 'Java', 'Python', 50000),
+    -> ('Alice', '1988-10-25', '2012-04-10', 'F', 'C++', 'JavaScript', 55000),
+    -> ('Bob', '1995-03-02', '2018-11-05', 'M', 'Python', NULL, 48000),
+    -> ('Emily', '1992-07-12', '2014-09-15', 'F', 'Java', 'C#', 60000),
+    -> ('Michael', '1985-12-30', '2010-02-18', 'M', 'JavaScript', 'SQL', 65000),
+    -> ('Sophia', '1998-08-07', '2019-06-22', 'F', 'Python', 'Java', 52000),
+    -> ('David', '1991-04-18', '2013-07-30', 'M', 'C++', 'Python', 59000),
+    -> ('Emma', '1987-09-05', '2011-11-11', 'F', 'Java', 'JavaScript', 63000),
+    -> ('James', '1993-06-20', '2016-03-25', 'M', 'Python', 'Ruby', 57000),
+    -> ('Olivia', '1997-01-10', '2020-01-05', 'F', 'JavaScript', 'C++', 54000),
+    -> ('William', '1989-11-28', '2012-09-08', 'M', 'Java', 'Python', 61000),
+    -> ('Ava', '1994-10-08', '2017-07-14', 'F', 'C#', 'Java', 56000),
+    -> ('Alexander', '1996-09-03', '2018-12-20', 'M', 'Python', 'JavaScript', 59000),
+    -> ('Mia', '1990-03-28', '2013-08-30', 'F', 'Java', 'C++', 58000),
+    -> ('Ethan', '1986-05-17', '2010-06-05', 'M', 'SQL', NULL, 64000),
+    -> ('Charlotte', '1999-07-22', '2021-02-15', 'F', 'C++', 'Python', 51000),
+    -> ('Daniel', '1992-12-15', '2015-04-20', 'M', 'JavaScript', 'Java', 62000),
+    -> ('Amelia', '1988-04-05', '2011-10-10', 'F', 'Python', 'JavaScript', 67000),
+    -> ('Alexander', '1991-06-18', '2014-12-02', 'M', 'Java', 'C++', 66000),
+    -> ('Abigail', '1995-09-20', '2017-05-25', 'F', 'JavaScript', 'Python', 55000),
+    -> ('Liam', '1987-11-23', '2010-09-28', 'M', 'C++', 'Java', 60000),
+    -> ('Harper', '1998-02-14', '2020-08-10', 'F', 'Python', 'Java', 53000),
+    -> ('Henry', '1993-08-30', '2016-11-15', 'M', 'JavaScript', 'C++', 57000),
+    -> ('Evelyn', '1996-01-02', '2018-04-05', 'F', 'Java', 'Python', 59000);
+ERROR 1406 (22001): Data too long for column 'prof2' at row 2
+mysql> INSERT INTO programmer (name, dob, doj, sex, prof1, prof2, salary) VALUES
+    -> ('John', '1990-05-15', '2015-08-20', 'M', 'Java', 'Python', 50000),
+    -> ('Alice', '1988-10-25', '2012-04-10', 'F', 'C++', 'JavaScript', 55000),
+    -> ('Bob', '1995-03-02', '2018-11-05', 'M', 'Python', NULL, 48000),
+    -> ('Emily', '1992-07-12', '2014-09-15', 'F', 'Java', 'C#', 60000),
+    -> ('Michael', '1985-12-30', '2010-02-18', 'M', 'JavaScript', 'SQL', 65000),
+    -> ('Sophia', '1998-08-07', '2019-06-22', 'F', 'Python', 'Java', 52000),
+    -> ('David', '1991-04-18', '2013-07-30', 'M', 'C++', 'Python', 59000),
+    -> ('Emma', '1987-09-05', '2011-11-11', 'F', 'Java', 'JavaScript', 63000),
+    -> ('James', '1993-06-20', '2016-03-25', 'M', 'Python', 'Ruby', 57000),
+    -> ('Olivia', '1997-01-10', '2020-01-05', 'F', 'JavaScript', 'C++', 54000),
+    -> ('William', '1989-11-28', '2012-09-08', 'M', 'Java', 'Python', 61000),
+    -> ('Ava', '1994-10-08', '2017-07-14', 'F', 'C#', 'Java', 56000),
+    -> ('Alexander', '1996-09-03', '2018-12-20', 'M', 'Python', 'JavaScript', 59000),
+    -> ('Mia', '1990-03-28', '2013-08-30', 'F', 'Java', 'C++', 58000),
+    -> ('Ethan', '1986-05-17', '2010-06-05', 'M', 'SQL', NULL, 64000),
+    -> ('Charlotte', '1999-07-22', '2021-02-15', 'F', 'C++', 'Python', 51000),
+    -> ('Daniel', '1992-12-15', '2015-04-20', 'M', 'JavaScript', 'Java', 62000),
+    -> ('Amelia', '1988-04-05', '2011-10-10', 'F', 'Python', 'JavaScript', 67000),
+    -> ('Alexander', '1991-06-18', '2014-12-02', 'M', 'Java', 'C++', 66000),
+    -> ('Abigail', '1995-09-20', '2017-05-25', 'F', 'JavaScript', 'Python', 55000),
+    -> ('Liam', '1987-11-23', '2010-09-28', 'M', 'C++', 'Java', 60000),
+    -> ('Harper', '1998-02-14', '2020-08-10', 'F', 'Python', 'Java', 53000),
+    -> ('Henry', '1993-08-30', '2016-11-15', 'M', 'JavaScript', 'C++', 57000),
+    -> ('Evelyn', '1996-01-02', '2018-04-05', 'F', 'Java', 'Python', 59000);
+ERROR 1406 (22001): Data too long for column 'prof2' at row 2
+mysql> drop table programmer;
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> CREATE TABLE programmer (
+    ->     name VARCHAR(88) NOT NULL,
+    ->     dob DATE NOT NULL,
+    ->     doj DATE NOT NULL,
+    ->     sex VARCHAR(1) NOT NULL,
+    ->     prof1 VARCHAR(88),
+    ->     prof2 VARCHAR(88),
+    ->     salary INT NOT NULL
+    -> );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> INSERT INTO programmer (name, dob, doj, sex, prof1, prof2, salary) VALUES
+    -> ('John', '1990-05-15', '2015-08-20', 'M', 'Java', 'Python', 50000),
+    -> ('Alice', '1988-10-25', '2012-04-10', 'F', 'C++', 'JavaScript', 55000),
+    -> ('Bob', '1995-03-02', '2018-11-05', 'M', 'Python', NULL, 48000),
+    -> ('Emily', '1992-07-12', '2014-09-15', 'F', 'Java', 'C#', 60000),
+    -> ('Michael', '1985-12-30', '2010-02-18', 'M', 'JavaScript', 'SQL', 65000),
+    -> ('Sophia', '1998-08-07', '2019-06-22', 'F', 'Python', 'Java', 52000),
+    -> ('David', '1991-04-18', '2013-07-30', 'M', 'C++', 'Python', 59000),
+    -> ('Emma', '1987-09-05', '2011-11-11', 'F', 'Java', 'JavaScript', 63000),
+    -> ('James', '1993-06-20', '2016-03-25', 'M', 'Python', 'Ruby', 57000),
+    -> ('Olivia', '1997-01-10', '2020-01-05', 'F', 'JavaScript', 'C++', 54000),
+    -> ('William', '1989-11-28', '2012-09-08', 'M', 'Java', 'Python', 61000),
+    -> ('Ava', '1994-10-08', '2017-07-14', 'F', 'C#', 'Java', 56000),
+    -> ('Alexander', '1996-09-03', '2018-12-20', 'M', 'Python', 'JavaScript', 59000),
+    -> ('Mia', '1990-03-28', '2013-08-30', 'F', 'Java', 'C++', 58000),
+    -> ('Ethan', '1986-05-17', '2010-06-05', 'M', 'SQL', NULL, 64000),
+    -> ('Charlotte', '1999-07-22', '2021-02-15', 'F', 'C++', 'Python', 51000),
+    -> ('Daniel', '1992-12-15', '2015-04-20', 'M', 'JavaScript', 'Java', 62000),
+    -> ('Amelia', '1988-04-05', '2011-10-10', 'F', 'Python', 'JavaScript', 67000),
+    -> ('Alexander', '1991-06-18', '2014-12-02', 'M', 'Java', 'C++', 66000),
+    -> ('Abigail', '1995-09-20', '2017-05-25', 'F', 'JavaScript', 'Python', 55000),
+    -> ('Liam', '1987-11-23', '2010-09-28', 'M', 'C++', 'Java', 60000),
+    -> ('Harper', '1998-02-14', '2020-08-10', 'F', 'Python', 'Java', 53000),
+    -> ('Henry', '1993-08-30', '2016-11-15', 'M', 'JavaScript', 'C++', 57000),
+    -> ('Evelyn', '1996-01-02', '2018-04-05', 'F', 'Java', 'Python', 59000);
+Query OK, 24 rows affected (0.01 sec)
+Records: 24  Duplicates: 0  Warnings: 0
+
+mysql> ^C
+mysql> CREATE TABLE Software (
+    ->     name VARCHAR(88) NOT NULL,
+    ->     title VARCHAR(20) NOT NULL,
+    ->     dev_in VARCHAR(88) NOT NULL,
+    ->     scost NUMBER(7,2),
+    ->     dcost NUMBER(5) NOT NULL,
+    ->     sold NUMBER(3),
+    ->     PRIMARY KEY (name)
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'NUMBER(7,2),
+    dcost NUMBER(5) NOT NULL,
+    sold NUMBER(3),
+    PRIMARY KEY (' at line 5
+mysql> CREATE TABLE Software (
+    ->     name VARCHAR(88) NOT NULL,
+    ->     title VARCHAR(20) NOT NULL,
+    ->     dev_in VARCHAR(88) NOT NULL,
+    ->     scost DECIMAL(7,2),
+    ->     dcost DECIMAL(5,0) NOT NULL,
+    ->     sold INT,
+    ->     PRIMARY KEY (name)
+    -> );
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> INSERT INTO Software (name, title, dev_in, scost, dcost, sold) VALUES
+    -> ('Software1', 'Project1', 'Java', 10000.50, 5000, 50),
+    -> ('Software2', 'Project2', 'Python', 15000.75, 6000, 75),
+    -> ('Software3', 'Project3', 'C++', 12000.25, 5500, 60),
+    -> ('Software4', 'Project4', 'JavaScript', 13000.80, 6500, 70),
+    -> ('Software5', 'Project5', 'Java', 11000.60, 5200, 55),
+    -> ('Software6', 'Project6', 'Python', 14000.40, 5800, 65),
+    -> ('Software7', 'Project7', 'C++', 12500.70, 5300, 58),
+    -> ('Software8', 'Project8', 'JavaScript', 13500.90, 7000, 80),
+    -> ('Software9', 'Project9', 'Java', 11500.55, 5700, 68),
+    -> ('Software10', 'Project10', 'Python', 14500.35, 5400, 63),
+    -> ('Software11', 'Project11', 'C++', 12700.45, 5900, 72),
+    -> ('Software12', 'Project12', 'JavaScript', 13700.65, 5600, 62),
+    -> ('Software13', 'Project13', 'Java', 11800.70, 6200, 78),
+    -> ('Software14', 'Project14', 'Python', 14800.85, 6100, 74),
+    -> ('Software15', 'Project15', 'C++', 12900.95, 5700, 66),
+    -> ('Software16', 'Project16', 'JavaScript', 13900.75, 5400, 69),
+    -> ('Software17', 'Project17', 'Java', 11900.60, 5800, 76),
+    -> ('Software18', 'Project18', 'Python', 14900.40, 5500, 67),
+    -> ('Software19', 'Project19', 'C++', 13000.50, 5900, 73),
+    -> ('Software20', 'Project20', 'JavaScript', 14000.45, 6000, 77),
+    -> ('Software21', 'Project21', 'Java', 12000.75, 5600, 71),
+    -> ('Software22', 'Project22', 'Python', 15000.90, 6300, 79),
+    -> ('Software23', 'Project23', 'C++', 13100.60, 5700, 64),
+    -> ('Software24', 'Project24', 'JavaScript', 14100.55, 6100, 75),
+    -> ('Software25', 'Project25', 'Java', 12100.70, 5800, 70);
+Query OK, 25 rows affected (0.01 sec)
+Records: 25  Duplicates: 0  Warnings: 0
+
+mysql> truncate software;
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> INSERT INTO Software (name, title, dev_in, scost, dcost, sold) VALUES
+    -> ('John', 'e-commerce', 'Java', 10000.50, 5000, 50),
+    -> ('Alice', 'library management', 'Python', 15000.75, 6000, 75),
+    -> ('Bob', 'accounting software', 'C++', 12000.25, 5500, 60),
+    -> ('Emily', 'social network', 'JavaScript', 13000.80, 6500, 70),
+    -> ('Michael', 'inventory management', 'Java', 11000.60, 5200, 55),
+    -> ('Sophia', 'hospital management', 'Python', 14000.40, 5800, 65),
+    -> ('David', 'e-learning platform', 'C++', 12500.70, 5300, 58),
+    -> ('Emma', 'customer relationship management', 'JavaScript', 13500.90, 7000, 80),
+    -> ('James', 'point of sale', 'Java', 11500.55, 5700, 68),
+    -> ('Olivia', 'task management', 'Python', 14500.35, 5400, 63),
+    -> ('William', 'ticketing system', 'C++', 12700.45, 5900, 72),
+    -> ('Ava', 'inventory tracking', 'JavaScript', 13700.65, 5600, 62),
+    -> ('Alexander', 'project management', 'Java', 11800.70, 6200, 78),
+    -> ('Mia', 'expense tracking', 'Python', 14800.85, 6100, 74),
+    -> ('Ethan', 'video conferencing', 'C++', 12900.95, 5700, 66),
+    -> ('Charlotte', 'document management', 'JavaScript', 13900.75, 5400, 69),
+    -> ('Daniel', 'ticketing system', 'Java', 11900.60, 5800, 76),
+    -> ('Amelia', 'time tracking', 'Python', 14900.40, 5500, 67),
+    -> ('Alexander', 'point of sale', 'C++', 13000.50, 5900, 73),
+    -> ('Abigail', 'calendar management', 'JavaScript', 14000.45, 6000, 77),
+    -> ('Liam', 'content management', 'Java', 12100.70, 5800, 70),
+    -> ('Harper', 'inventory management', 'Python', 15000.90, 6300, 79),
+    -> ('Henry', 'project management', 'C++', 13100.60, 5700, 64),
+    -> ('Evelyn', 'e-commerce', 'JavaScript', 14100.55, 6100, 75);
+ERROR 1406 (22001): Data too long for column 'title' at row 8
+mysql> INSERT INTO Software (name, title, dev_in, scost, dcost, sold) VALUES
+    -> ('John', 'e-commerce', 'Java', 10000.50, 5000, 50),
+    -> ('Alice', 'library management', 'Python', 15000.75, 6000, 75),
+    -> ('Bob', 'accounting software', 'C++', 12000.25, 5500, 60),
+    -> ('Emily', 'social network', 'JavaScript', 13000.80, 6500, 70),
+    -> ('Michael', 'inventory management', 'Java', 11000.60, 5200, 55),
+    -> ('Sophia', 'hospital management', 'Python', 14000.40, 5800, 65),
+    -> ('David', 'e-learning platform', 'C++', 12500.70, 5300, 58),
+    -> ('Emma', 'customer  management', 'JavaScript', 13500.90, 7000, 80),
+    -> ('James', 'point of sale', 'Java', 11500.55, 5700, 68),
+    -> ('Olivia', 'task management', 'Python', 14500.35, 5400, 63),
+    -> ('William', 'ticketing system', 'C++', 12700.45, 5900, 72),
+    -> ('Ava', 'inventory tracking', 'JavaScript', 13700.65, 5600, 62),
+    -> ('Alexander', 'project management', 'Java', 11800.70, 6200, 78),
+    -> ('Mia', 'expense tracking', 'Python', 14800.85, 6100, 74),
+    -> ('Ethan', 'video conferencing', 'C++', 12900.95, 5700, 66),
+    -> ('Charlotte', 'document management', 'JavaScript', 13900.75, 5400, 69),
+    -> ('Daniel', 'ticketing system', 'Java', 11900.60, 5800, 76),
+    -> ('Amelia', 'time tracking', 'Python', 14900.40, 5500, 67),
+    -> ('Alexander', 'point of sale', 'C++', 13000.50, 5900, 73),
+    -> ('Abigail', 'calendar management', 'JavaScript', 14000.45, 6000, 77),
+    -> ('Liam', 'content management', 'Java', 12100.70, 5800, 70),
+    -> ('Harper', 'inventory management', 'Python', 15000.90, 6300, 79),
+    -> ('Henry', 'project management', 'C++', 13100.60, 5700, 64),
+    -> ('Evelyn', 'e-commerce', 'JavaScript', 14100.55, 6100, 75);
+ERROR 1062 (23000): Duplicate entry 'Alexander' for key 'software.PRIMARY'
+mysql> INSERT IGNORE INTO Software (name, title, dev_in, scost, dcost, sold) VALUES
+    -> ('John', 'e-commerce', 'Java', 10000.50, 5000, 50),
+    -> ('Alice', 'library management', 'Python', 15000.75, 6000, 75),
+    -> ('Bob', 'accounting software', 'C++', 12000.25, 5500, 60),
+    -> ('Emily', 'social network', 'JavaScript', 13000.80, 6500, 70),
+    -> ('Michael', 'inventory management', 'Java', 11000.60, 5200, 55),
+    -> ('Sophia', 'hospital management', 'Python', 14000.40, 5800, 65),
+    -> ('David', 'e-learning platform', 'C++', 12500.70, 5300, 58),
+    -> ('Emma', 'customer  management', 'JavaScript', 13500.90, 7000, 80),
+    -> ('James', 'point of sale', 'Java', 11500.55, 5700, 68),
+    -> ('Olivia', 'task management', 'Python', 14500.35, 5400, 63),
+    -> ('William', 'ticketing system', 'C++', 12700.45, 5900, 72),
+    -> ('Ava', 'inventory tracking', 'JavaScript', 13700.65, 5600, 62),
+    -> ('Alexander', 'project management', 'Java', 11800.70, 6200, 78),
+    -> ('Mia', 'expense tracking', 'Python', 14800.85, 6100, 74),
+    -> ('Ethan', 'video conferencing', 'C++', 12900.95, 5700, 66),
+    -> ('Charlotte', 'document management', 'JavaScript', 13900.75, 5400, 69),
+    -> ('Daniel', 'ticketing system', 'Java', 11900.60, 5800, 76),
+    -> ('Amelia', 'time tracking', 'Python', 14900.40, 5500, 67),
+    -> ('Alexander', 'point of sale', 'C++', 13000.50, 5900, 73),
+    -> ('Abigail', 'calendar management', 'JavaScript', 14000.45, 6000, 77),
+    -> ('Liam', 'content management', 'Java', 12100.70, 5800, 70),
+    -> ('Harper', 'inventory management', 'Python', 15000.90, 6300, 79),
+    -> ('Henry', 'project management', 'C++', 13100.60, 5700, 64),
+    -> ('Evelyn', 'e-commerce', 'JavaScript', 14100.55, 6100, 75);
+Query OK, 23 rows affected, 1 warning (0.02 sec)
+Records: 24  Duplicates: 1  Warnings: 1
+
+mysql> select * from software
+    -> ;
++-----------+----------------------+------------+----------+-------+------+
+| name      | title                | dev_in     | scost    | dcost | sold |
++-----------+----------------------+------------+----------+-------+------+
+| Abigail   | calendar management  | JavaScript | 14000.45 |  6000 |   77 |
+| Alexander | project management   | Java       | 11800.70 |  6200 |   78 |
+| Alice     | library management   | Python     | 15000.75 |  6000 |   75 |
+| Amelia    | time tracking        | Python     | 14900.40 |  5500 |   67 |
+| Ava       | inventory tracking   | JavaScript | 13700.65 |  5600 |   62 |
+| Bob       | accounting software  | C++        | 12000.25 |  5500 |   60 |
+| Charlotte | document management  | JavaScript | 13900.75 |  5400 |   69 |
+| Daniel    | ticketing system     | Java       | 11900.60 |  5800 |   76 |
+| David     | e-learning platform  | C++        | 12500.70 |  5300 |   58 |
+| Emily     | social network       | JavaScript | 13000.80 |  6500 |   70 |
+| Emma      | customer  management | JavaScript | 13500.90 |  7000 |   80 |
+| Ethan     | video conferencing   | C++        | 12900.95 |  5700 |   66 |
+| Evelyn    | e-commerce           | JavaScript | 14100.55 |  6100 |   75 |
+| Harper    | inventory management | Python     | 15000.90 |  6300 |   79 |
+| Henry     | project management   | C++        | 13100.60 |  5700 |   64 |
+| James     | point of sale        | Java       | 11500.55 |  5700 |   68 |
+| John      | e-commerce           | Java       | 10000.50 |  5000 |   50 |
+| Liam      | content management   | Java       | 12100.70 |  5800 |   70 |
+| Mia       | expense tracking     | Python     | 14800.85 |  6100 |   74 |
+| Michael   | inventory management | Java       | 11000.60 |  5200 |   55 |
+| Olivia    | task management      | Python     | 14500.35 |  5400 |   63 |
+| Sophia    | hospital management  | Python     | 14000.40 |  5800 |   65 |
+| William   | ticketing system     | C++        | 12700.45 |  5900 |   72 |
++-----------+----------------------+------------+----------+-------+------+
+23 rows in set (0.01 sec)
+
+mysql> CREATE TABLE Studies (
+    ->     name VARCHAR(88) NOT NULL,
+    ->     splace VARCHAR(89) NOT NULL,
+    ->     course VARCHAR(58) NOT NULL,
+    ->     ccost VARCHAR(55) NOT NULL
+    -> );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> INSERT INTO Studies (name, splace, course, ccost) VALUES
+    -> ('Somdutt Sabhari', 'ABC University', 'PGDCA', '4500'),
+    -> ('Devdutt', 'XYZ College', 'BDPS DCS', '5000'),
+    -> ('John Smith', 'University A', 'Computer Science', '6000'),
+    -> ('Alice Johnson', 'College B', 'Engineering', '7000'),
+    -> ('Bob Williams', 'University C', 'Business Administration', '5500'),
+    -> ('Emily Brown', 'College D', 'Accounting', '4000'),
+    -> ('Michael Taylor', 'University E', 'Law', '8000'),
+    -> ('Sophia Wilson', 'College F', 'Medicine', '9000'),
+    -> ('David Martinez', 'University G', 'Psychology', '6500'),
+    -> ('Emma Davis', 'College H', 'Biology', '5500'),
+    -> ('James Anderson', 'University I', 'Chemistry', '7000'),
+    -> ('Olivia Jackson', 'College J', 'Mathematics', '6000'),
+    -> ('William Thomas', 'University K', 'Physics', '7500'),
+    -> ('Ava Garcia', 'College L', 'Literature', '4500'),
+    -> ('Alexander Hernandez', 'University M', 'History', '5000'),
+    -> ('Mia Lopez', 'College N', 'Sociology', '5500'),
+    -> ('Ethan Gonzalez', 'University O', 'Anthropology', '6500'),
+    -> ('Charlotte Rodriguez', 'College P', 'Philosophy', '6000'),
+    -> ('Daniel Perez', 'University Q', 'Political Science', '7000'),
+    -> ('Amelia Sanchez', 'College R', 'Economics', '8000'),
+    -> ('Alexander Ramirez', 'University S', 'Geography', '7500'),
+    -> ('Abigail Torres', 'College T', 'Environmental Science', '7000'),
+    -> ('Liam Flores', 'University U', 'Foreign Languages', '6000'),
+    -> ('Harper Rivera', 'College V', 'Fine Arts', '5500'),
+    -> ('Henry Cruz', 'University W', 'Music', '6500');
+Query OK, 25 rows affected (0.02 sec)
+Records: 25  Duplicates: 0  Warnings: 0
+
+mysql> SELECT AVG(scost) AS average_selling_cost
+    -> FROM Software
+    -> WHERE dev_in = 'PASCAL';
++----------------------+
+| average_selling_cost |
++----------------------+
+|                 NULL |
++----------------------+
+1 row in set (0.01 sec)
+
+mysql> INSERT INTO Software (name, title, dev_in, scost, dcost, sold) ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> VALUES ('Package1', 'Project A', 'PASCAL', 10000.50, 5000, 50);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '('Package1', 'Project A', 'PASCAL', 10000.50, 5000, 50)' at line 1
+mysql> VALUES ('Ram', 'Ecommece', 'PASCAL', 10000.50, 5000, 50);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '('Ram', 'Ecommece', 'PASCAL', 10000.50, 5000, 50)' at line 1
+mysql> INSERT INTO Software (name, title, dev_in, scost, dcost, sold)
+    -> VALUES ('Ram', 'Ecommece', 'PASCAL', 10000.50, 5000, 50);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> SELECT AVG(scost) AS average_selling_cost
+    -> FROM Software
+    -> WHERE dev_in = 'PASCAL';
++----------------------+
+| average_selling_cost |
++----------------------+
+|         10000.500000 |
++----------------------+
+1 row in set (0.01 sec)
+
+mysql> SELECT name, TIMESTAMPDIFF(YEAR, dob, CURDATE()) AS age
+    -> FROM Programmer;
++-----------+------+
+| name      | age  |
++-----------+------+
+| John      |   33 |
+| Alice     |   35 |
+| Bob       |   29 |
+| Emily     |   31 |
+| Michael   |   38 |
+| Sophia    |   25 |
+| David     |   32 |
+| Emma      |   36 |
+| James     |   30 |
+| Olivia    |   27 |
+| William   |   34 |
+| Ava       |   29 |
+| Alexander |   27 |
+| Mia       |   34 |
+| Ethan     |   37 |
+| Charlotte |   24 |
+| Daniel    |   31 |
+| Amelia    |   36 |
+| Alexander |   32 |
+| Abigail   |   28 |
+| Liam      |   36 |
+| Harper    |   26 |
+| Henry     |   30 |
+| Evelyn    |   28 |
++-----------+------+
+24 rows in set (0.00 sec)
+
+mysql> SELECT P.name, TIMESTAMPDIFF(YEAR, P.dob, CURDATE()) AS age
+    -> FROM Programmer P
+    -> JOIN Studies S ON P.name = S.name
+    -> WHERE S.course = 'DCS';
+Empty set (0.00 sec)
+
+mysql> select * from prgrammer;
+ERROR 1146 (42S02): Table 'aspire.prgrammer' doesn't exist
+mysql> select * from programmer;
++-----------+------------+------------+-----+------------+------------+--------+
+| name      | dob        | doj        | sex | prof1      | prof2      | salary |
++-----------+------------+------------+-----+------------+------------+--------+
+| John      | 1990-05-15 | 2015-08-20 | M   | Java       | Python     |  50000 |
+| Alice     | 1988-10-25 | 2012-04-10 | F   | C++        | JavaScript |  55000 |
+| Bob       | 1995-03-02 | 2018-11-05 | M   | Python     | NULL       |  48000 |
+| Emily     | 1992-07-12 | 2014-09-15 | F   | Java       | C#         |  60000 |
+| Michael   | 1985-12-30 | 2010-02-18 | M   | JavaScript | SQL        |  65000 |
+| Sophia    | 1998-08-07 | 2019-06-22 | F   | Python     | Java       |  52000 |
+| David     | 1991-04-18 | 2013-07-30 | M   | C++        | Python     |  59000 |
+| Emma      | 1987-09-05 | 2011-11-11 | F   | Java       | JavaScript |  63000 |
+| James     | 1993-06-20 | 2016-03-25 | M   | Python     | Ruby       |  57000 |
+| Olivia    | 1997-01-10 | 2020-01-05 | F   | JavaScript | C++        |  54000 |
+| William   | 1989-11-28 | 2012-09-08 | M   | Java       | Python     |  61000 |
+| Ava       | 1994-10-08 | 2017-07-14 | F   | C#         | Java       |  56000 |
+| Alexander | 1996-09-03 | 2018-12-20 | M   | Python     | JavaScript |  59000 |
+| Mia       | 1990-03-28 | 2013-08-30 | F   | Java       | C++        |  58000 |
+| Ethan     | 1986-05-17 | 2010-06-05 | M   | SQL        | NULL       |  64000 |
+| Charlotte | 1999-07-22 | 2021-02-15 | F   | C++        | Python     |  51000 |
+| Daniel    | 1992-12-15 | 2015-04-20 | M   | JavaScript | Java       |  62000 |
+| Amelia    | 1988-04-05 | 2011-10-10 | F   | Python     | JavaScript |  67000 |
+| Alexander | 1991-06-18 | 2014-12-02 | M   | Java       | C++        |  66000 |
+| Abigail   | 1995-09-20 | 2017-05-25 | F   | JavaScript | Python     |  55000 |
+| Liam      | 1987-11-23 | 2010-09-28 | M   | C++        | Java       |  60000 |
+| Harper    | 1998-02-14 | 2020-08-10 | F   | Python     | Java       |  53000 |
+| Henry     | 1993-08-30 | 2016-11-15 | M   | JavaScript | C++        |  57000 |
+| Evelyn    | 1996-01-02 | 2018-04-05 | F   | Java       | Python     |  59000 |
++-----------+------------+------------+-----+------------+------------+--------+
+24 rows in set (0.00 sec)
+
+mysql>  INSERT INTO Studies (name, splace, course, ccost) VALUES
+    ->     -> ('Geetha', 'BC University', 'DCA', '4500'),
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-> ('Geetha', 'BC University', 'DCA', '4500'),' at line 2
+mysql>  INSERT INTO Studies (name, splace, course, ccost) VALUES
+    ->     -> ('Geetha', 'BC University', 'DCA', '4500');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-> ('Geetha', 'BC University', 'DCA', '4500')' at line 2
+mysql>  INSERT INTO Studies (name, splace, course, ccost) VALUES
+    ->   ('Geetha', 'BC University', 'DCA', '4500');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT P.name, TIMESTAMPDIFF(YEAR, P.dob, CURDATE()) AS age
+    -> FROM Programmer P
+    -> JOIN Studies S ON P.name = S.name
+    -> WHERE S.course = 'DCS';
+Empty set (0.00 sec)
+
+mysql>  INSERT INTO Studies (name, splace, course, ccost) VALUES
+    ->     ('Geethaprabha', 'BC University', 'DCS', '4500');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT P.name, TIMESTAMPDIFF(YEAR, P.dob, CURDATE()) AS age
+    -> FROM Programmer P
+    -> JOIN Studies S ON P.name = S.name
+    -> WHERE S.course = 'DCS';
+Empty set (0.01 sec)
+
+mysql> SELECT MAX(sold) AS highest_sold
+    -> FROM Software;
++--------------+
+| highest_sold |
++--------------+
+|           80 |
++--------------+
+1 row in set (0.01 sec)
+
+mysql> SELECT name, dob
+    -> FROM Programmer
+    -> WHERE MONTH(dob) = 1;
++--------+------------+
+| name   | dob        |
++--------+------------+
+| Olivia | 1997-01-10 |
+| Evelyn | 1996-01-02 |
++--------+------------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT MIN(ccost) AS lowest_course_fee
+    -> FROM Studies;
++-------------------+
+| lowest_course_fee |
++-------------------+
+| 4000              |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT MIN(ccost) AS lowest_course_fee
+    -> FROM Studies;
++-------------------+
+| lowest_course_fee |
++-------------------+
+| 4000              |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT COUNT(*) AS pgdca_programmers
+    -> FROM Studies
+    -> WHERE course = 'PGDCA';
++-------------------+
+| pgdca_programmers |
++-------------------+
+|                 1 |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT SUM(scost * sold) AS revenue
+    -> FROM Software
+    -> WHERE dev_in = 'C';
++---------+
+| revenue |
++---------+
+|    NULL |
++---------+
+1 row in set (0.01 sec)
+
+mysql> SELECT *
+    -> FROM Software
+    -> WHERE name = 'Ramesh';
+Empty set (0.01 sec)
+
+mysql> SELECT COUNT(*) AS sabhari_programmers
+    -> FROM Studies
+    -> WHERE splace = 'SABHARI';
++---------------------+
+| sabhari_programmers |
++---------------------+
+|                   0 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM Software
+    -> WHERE sold > 20000;
+Empty set (0.01 sec)
+
+mysql>
+mysql> SELECT name, CEIL(dcost / scost) AS copies_to_recover_cost
+    -> FROM Software;
++-----------+------------------------+
+| name      | copies_to_recover_cost |
++-----------+------------------------+
+| Abigail   |                      1 |
+| Alexander |                      1 |
+| Alice     |                      1 |
+| Amelia    |                      1 |
+| Ava       |                      1 |
+| Bob       |                      1 |
+| Charlotte |                      1 |
+| Daniel    |                      1 |
+| David     |                      1 |
+| Emily     |                      1 |
+| Emma      |                      1 |
+| Ethan     |                      1 |
+| Evelyn    |                      1 |
+| Harper    |                      1 |
+| Henry     |                      1 |
+| James     |                      1 |
+| John      |                      1 |
+| Liam      |                      1 |
+| Mia       |                      1 |
+| Michael   |                      1 |
+| Olivia    |                      1 |
+| Ram       |                      1 |
+| Sophia    |                      1 |
+| William   |                      1 |
++-----------+------------------------+
+24 rows in set (0.01 sec)
+
+mysql> SELECT name, CEIL(dcost / scost) AS copies_to_recover_cost
+    -> FROM Software;
++-----------+------------------------+
+| name      | copies_to_recover_cost |
++-----------+------------------------+
+| Abigail   |                      1 |
+| Alexander |                      1 |
+| Alice     |                      1 |
+| Amelia    |                      1 |
+| Ava       |                      1 |
+| Bob       |                      1 |
+| Charlotte |                      1 |
+| Daniel    |                      1 |
+| David     |                      1 |
+| Emily     |                      1 |
+| Emma      |                      1 |
+| Ethan     |                      1 |
+| Evelyn    |                      1 |
+| Harper    |                      1 |
+| Henry     |                      1 |
+| James     |                      1 |
+| John      |                      1 |
+| Liam      |                      1 |
+| Mia       |                      1 |
+| Michael   |                      1 |
+| Olivia    |                      1 |
+| Ram       |                      1 |
+| Sophia    |                      1 |
+| William   |                      1 |
++-----------+------------------------+
+24 rows in set (0.00 sec)
+
+mysql> SELECT MAX(scost) AS costliest_software_price
+    -> FROM Software
+    -> WHERE dev_in = 'BASIC';
++--------------------------+
+| costliest_software_price |
++--------------------------+
+|                     NULL |
++--------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM Software
+    -> WHERE sold * scost >= dcost;
++-----------+----------------------+------------+----------+-------+------+
+| name      | title                | dev_in     | scost    | dcost | sold |
++-----------+----------------------+------------+----------+-------+------+
+| Abigail   | calendar management  | JavaScript | 14000.45 |  6000 |   77 |
+| Alexander | project management   | Java       | 11800.70 |  6200 |   78 |
+| Alice     | library management   | Python     | 15000.75 |  6000 |   75 |
+| Amelia    | time tracking        | Python     | 14900.40 |  5500 |   67 |
+| Ava       | inventory tracking   | JavaScript | 13700.65 |  5600 |   62 |
+| Bob       | accounting software  | C++        | 12000.25 |  5500 |   60 |
+| Charlotte | document management  | JavaScript | 13900.75 |  5400 |   69 |
+| Daniel    | ticketing system     | Java       | 11900.60 |  5800 |   76 |
+| David     | e-learning platform  | C++        | 12500.70 |  5300 |   58 |
+| Emily     | social network       | JavaScript | 13000.80 |  6500 |   70 |
+| Emma      | customer  management | JavaScript | 13500.90 |  7000 |   80 |
+| Ethan     | video conferencing   | C++        | 12900.95 |  5700 |   66 |
+| Evelyn    | e-commerce           | JavaScript | 14100.55 |  6100 |   75 |
+| Harper    | inventory management | Python     | 15000.90 |  6300 |   79 |
+| Henry     | project management   | C++        | 13100.60 |  5700 |   64 |
+| James     | point of sale        | Java       | 11500.55 |  5700 |   68 |
+| John      | e-commerce           | Java       | 10000.50 |  5000 |   50 |
+| Liam      | content management   | Java       | 12100.70 |  5800 |   70 |
+| Mia       | expense tracking     | Python     | 14800.85 |  6100 |   74 |
+| Michael   | inventory management | Java       | 11000.60 |  5200 |   55 |
+| Olivia    | task management      | Python     | 14500.35 |  5400 |   63 |
+| Ram       | Ecommece             | PASCAL     | 10000.50 |  5000 |   50 |
+| Sophia    | hospital management  | Python     | 14000.40 |  5800 |   65 |
+| William   | ticketing system     | C++        | 12700.45 |  5900 |   72 |
++-----------+----------------------+------------+----------+-------+------+
+24 rows in set (0.00 sec)
+
+mysql> SELECT COUNT(*) AS dbase_packages
+    -> FROM Software
+    -> WHERE dev_in = 'dbase';
++----------------+
+| dbase_packages |
++----------------+
+|              0 |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT COUNT(DISTINCT name) AS paragathi_students
+    -> FROM Studies
+    -> WHERE splace = 'paragathi';
++--------------------+
+| paragathi_students |
++--------------------+
+|                  0 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT COUNT(*) AS programmers_paid_5k_to_10k
+    -> FROM Studies
+    -> WHERE ccost BETWEEN 5000 AND 10000;
++----------------------------+
+| programmers_paid_5k_to_10k |
++----------------------------+
+|                         22 |
++----------------------------+
+1 row in set (0.01 sec)
+
+mysql> SELECT AVG(ccost) AS average_course_fee
+    -> FROM Studies;
++--------------------+
+| average_course_fee |
++--------------------+
+|   6129.62962962963 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM Programmer
+    -> WHERE prof1 = 'C' OR prof2 = 'C';
+Empty set (0.00 sec)
+
+mysql> SELECT COUNT(*) AS cobol_or_pascal_programmers
+    -> FROM Programmer
+    -> WHERE prof1 IN ('Cobol', 'Pascal') OR prof2 IN ('Cobol', 'Pascal');
++-----------------------------+
+| cobol_or_pascal_programmers |
++-----------------------------+
+|                           0 |
++-----------------------------+
+1 row in set (0.01 sec)
+
+mysql> SELECT COUNT(*) AS programmers_not_know_pascal_c
+    -> FROM Programmer
+    -> WHERE prof1 NOT IN ('Pascal', 'C') AND prof2 NOT IN ('Pascal', 'C');
++-------------------------------+
+| programmers_not_know_pascal_c |
++-------------------------------+
+|                            22 |
++-------------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT TIMESTAMPDIFF(YEAR, dob, CURDATE()) AS oldest_male_age
+    -> FROM Programmer
+    -> WHERE sex = 'male'
+    -> ORDER BY dob DESC
+    -> LIMIT 1;
+Empty set (0.01 sec)
+
+mysql> SELECT AVG(TIMESTAMPDIFF(YEAR, dob, CURDATE())) AS average_female_age
+    -> FROM Programmer
+    -> WHERE sex = 'female';
++--------------------+
+| average_female_age |
++--------------------+
+|               NULL |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT name, TIMESTAMPDIFF(YEAR, doj, CURDATE()) AS experience_years
+    -> FROM Programmer
+    -> ORDER BY experience_years DESC;
++-----------+------------------+
+| name      | experience_years |
++-----------+------------------+
+| Michael   |               14 |
+| Ethan     |               13 |
+| Liam      |               13 |
+| Emma      |               12 |
+| Amelia    |               12 |
+| Alice     |               11 |
+| William   |               11 |
+| David     |               10 |
+| Mia       |               10 |
+| Emily     |                9 |
+| Alexander |                9 |
+| John      |                8 |
+| James     |                8 |
+| Daniel    |                8 |
+| Henry     |                7 |
+| Ava       |                6 |
+| Abigail   |                6 |
+| Evelyn    |                6 |
+| Bob       |                5 |
+| Alexander |                5 |
+| Sophia    |                4 |
+| Olivia    |                4 |
+| Charlotte |                3 |
+| Harper    |                3 |
++-----------+------------------+
+24 rows in set (0.00 sec)
+
+mysql> SELECT name
+    -> FROM Programmer
+    -> WHERE MONTH(dob) = MONTH(CURDATE());
++--------+
+| name   |
++--------+
+| David  |
+| Amelia |
++--------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT COUNT(*) AS female_programmers_count
+    -> FROM Programmer
+    -> WHERE sex = 'female';
++--------------------------+
+| female_programmers_count |
++--------------------------+
+|                        0 |
++--------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT DISTINCT prof1, prof2
+    -> FROM Programmer
+    -> WHERE sex = 'male';
+Empty set (0.01 sec)
+
+mysql> SELECT AVG(salary) AS average_salary
+    -> FROM Programmer;
++----------------+
+| average_salary |
++----------------+
+|     57958.3333 |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT COUNT(*) AS people_salary_2k_to_4k
+    -> FROM Programmer
+    -> WHERE salary BETWEEN 2000 AND 4000;
++------------------------+
+| people_salary_2k_to_4k |
++------------------------+
+|                      0 |
++------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM Programmer
+    -> WHERE prof1 NOT IN ('Clipper', 'Cobol', 'Pascal')
+    ->   AND prof2 NOT IN ('Clipper', 'Cobol', 'Pascal');
++-----------+------------+------------+-----+------------+------------+--------+
+| name      | dob        | doj        | sex | prof1      | prof2      | salary |
++-----------+------------+------------+-----+------------+------------+--------+
+| John      | 1990-05-15 | 2015-08-20 | M   | Java       | Python     |  50000 |
+| Alice     | 1988-10-25 | 2012-04-10 | F   | C++        | JavaScript |  55000 |
+| Emily     | 1992-07-12 | 2014-09-15 | F   | Java       | C#         |  60000 |
+| Michael   | 1985-12-30 | 2010-02-18 | M   | JavaScript | SQL        |  65000 |
+| Sophia    | 1998-08-07 | 2019-06-22 | F   | Python     | Java       |  52000 |
+| David     | 1991-04-18 | 2013-07-30 | M   | C++        | Python     |  59000 |
+| Emma      | 1987-09-05 | 2011-11-11 | F   | Java       | JavaScript |  63000 |
+| James     | 1993-06-20 | 2016-03-25 | M   | Python     | Ruby       |  57000 |
+| Olivia    | 1997-01-10 | 2020-01-05 | F   | JavaScript | C++        |  54000 |
+| William   | 1989-11-28 | 2012-09-08 | M   | Java       | Python     |  61000 |
+| Ava       | 1994-10-08 | 2017-07-14 | F   | C#         | Java       |  56000 |
+| Alexander | 1996-09-03 | 2018-12-20 | M   | Python     | JavaScript |  59000 |
+| Mia       | 1990-03-28 | 2013-08-30 | F   | Java       | C++        |  58000 |
+| Charlotte | 1999-07-22 | 2021-02-15 | F   | C++        | Python     |  51000 |
+| Daniel    | 1992-12-15 | 2015-04-20 | M   | JavaScript | Java       |  62000 |
+| Amelia    | 1988-04-05 | 2011-10-10 | F   | Python     | JavaScript |  67000 |
+| Alexander | 1991-06-18 | 2014-12-02 | M   | Java       | C++        |  66000 |
+| Abigail   | 1995-09-20 | 2017-05-25 | F   | JavaScript | Python     |  55000 |
+| Liam      | 1987-11-23 | 2010-09-28 | M   | C++        | Java       |  60000 |
+| Harper    | 1998-02-14 | 2020-08-10 | F   | Python     | Java       |  53000 |
+| Henry     | 1993-08-30 | 2016-11-15 | M   | JavaScript | C++        |  57000 |
+| Evelyn    | 1996-01-02 | 2018-04-05 | F   | Java       | Python     |  59000 |
++-----------+------------+------------+-----+------------+------------+--------+
+22 rows in set (0.00 sec)
+
+mysql> SELECT COUNT(*) AS female_programmers_above_24_with_c
+    -> FROM Programmer
+    -> WHERE sex = 'female' AND TIMESTAMPDIFF(YEAR, dob, CURDATE()) > 24
+    -> AND (prof1 = 'C' OR prof2 = 'C');
++------------------------------------+
+| female_programmers_above_24_with_c |
++------------------------------------+
+|                                  0 |
++------------------------------------+
+1 row in set (0.01 sec)
+
+mysql> SELECT name
+    -> FROM Programmer
+    -> WHERE DAYOFYEAR(dob) BETWEEN DAYOFYEAR(CURDATE()) AND DAYOFYEAR(DATE_ADD(CURDATE(), INTERVAL 7 DAY));
+Empty set (0.01 sec)
+
+mysql> SELECT *
+    -> FROM Programmer
+    -> WHERE TIMESTAMPDIFF(YEAR, doj, CURDATE()) < 1;
+Empty set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM Programmer
+    -> WHERE TIMESTAMPDIFF(YEAR, doj, CURDATE()) = 2;
+Empty set (0.00 sec)
+
+mysql> SELECT name, (dcost - (sold * scost)) AS amount_to_recover
+    -> FROM Software
+    -> WHERE sold * scost < dcost;
+Empty set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM Software
+    -> WHERE sold = 0;
+Empty set (0.00 sec)
+
+mysql> SELECT scost
+    -> FROM Software
+    -> WHERE name = 'Mary';
+Empty set (0.00 sec)
+
+mysql> SELECT DISTINCT splace
+    -> FROM Studies;
++----------------+
+| splace         |
++----------------+
+| ABC University |
+| XYZ College    |
+| University A   |
+| College B      |
+| University C   |
+| College D      |
+| University E   |
+| College F      |
+| University G   |
+| College H      |
+| University I   |
+| College J      |
+| University K   |
+| College L      |
+| University M   |
+| College N      |
+| University O   |
+| College P      |
+| University Q   |
+| College R      |
+| University S   |
+| College T      |
+| University U   |
+| College V      |
+| University W   |
+| BC University  |
++----------------+
+26 rows in set (0.01 sec)
+
+mysql> SELECT COUNT(DISTINCT course) AS distinct_courses_count
+    -> FROM Studies;
++------------------------+
+| distinct_courses_count |
++------------------------+
+|                     27 |
++------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT name
+    -> FROM Programmer
+    -> WHERE LENGTH(name) - LENGTH(REPLACE(name, 'A', '')) = 2;
+Empty set (0.01 sec)
+
+mysql> SELECT name
+    -> FROM Programmer
+    -> WHERE LENGTH(name) <= 5;
++-------+
+| name  |
++-------+
+| John  |
+| Alice |
+| Bob   |
+| Emily |
+| David |
+| Emma  |
+| James |
+| Ava   |
+| Mia   |
+| Ethan |
+| Liam  |
+| Henry |
++-------+
+12 rows in set (0.00 sec)
+
+mysql> SELECT COUNT(*) AS female_programmers_with_cobol_more_than_2_years_exp
+    -> FROM Programmer
+    -> WHERE sex = 'female' AND prof1 = 'COBOL' AND TIMESTAMPDIFF(YEAR, doj, CURDATE()) > 2;
++-----------------------------------------------------+
+| female_programmers_with_cobol_more_than_2_years_exp |
++-----------------------------------------------------+
+|                                                   0 |
++-----------------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT MIN(LENGTH(name)) AS shortest_name_length
+    -> FROM Programmer;
++----------------------+
+| shortest_name_length |
++----------------------+
+|                    3 |
++----------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT AVG(dcost) AS average_development_cost
+    -> FROM Software
+    -> WHERE dev_in = 'COBOL';
++--------------------------+
+| average_development_cost |
++--------------------------+
+|                     NULL |
++--------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT name, sex, DATE_FORMAT(dob, '%d/%m/%y') AS dob, DATE_FORMAT(doj, '%d/%m/%y') AS doj
+    -> FROM Programmer;
++-----------+-----+----------+----------+
+| name      | sex | dob      | doj      |
++-----------+-----+----------+----------+
+| John      | M   | 15/05/90 | 20/08/15 |
+| Alice     | F   | 25/10/88 | 10/04/12 |
+| Bob       | M   | 02/03/95 | 05/11/18 |
+| Emily     | F   | 12/07/92 | 15/09/14 |
+| Michael   | M   | 30/12/85 | 18/02/10 |
+| Sophia    | F   | 07/08/98 | 22/06/19 |
+| David     | M   | 18/04/91 | 30/07/13 |
+| Emma      | F   | 05/09/87 | 11/11/11 |
+| James     | M   | 20/06/93 | 25/03/16 |
+| Olivia    | F   | 10/01/97 | 05/01/20 |
+| William   | M   | 28/11/89 | 08/09/12 |
+| Ava       | F   | 08/10/94 | 14/07/17 |
+| Alexander | M   | 03/09/96 | 20/12/18 |
+| Mia       | F   | 28/03/90 | 30/08/13 |
+| Ethan     | M   | 17/05/86 | 05/06/10 |
+| Charlotte | F   | 22/07/99 | 15/02/21 |
+| Daniel    | M   | 15/12/92 | 20/04/15 |
+| Amelia    | F   | 05/04/88 | 10/10/11 |
+| Alexander | M   | 18/06/91 | 02/12/14 |
+| Abigail   | F   | 20/09/95 | 25/05/17 |
+| Liam      | M   | 23/11/87 | 28/09/10 |
+| Harper    | F   | 14/02/98 | 10/08/20 |
+| Henry     | M   | 30/08/93 | 15/11/16 |
+| Evelyn    | F   | 02/01/96 | 05/04/18 |
++-----------+-----+----------+----------+
+24 rows in set (0.00 sec)
+
+mysql> SELECT name
+    -> FROM Programmer
+    -> WHERE DAY(LAST_DAY(dob)) = DAY(dob);
+Empty set (0.01 sec)
+
+mysql> SELECT SUM(salary) AS total_salary_paid
+    -> FROM Programmer
+    -> WHERE sex = 'male' AND (prof1 != 'Cobol' OR prof2 != 'Cobol');
++-------------------+
+| total_salary_paid |
++-------------------+
+|              NULL |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT name, dob, doj
+    -> FROM Programmer
+    -> WHERE MONTH(dob) = MONTH(doj);
++--------+------------+------------+
+| name   | dob        | doj        |
++--------+------------+------------+
+| Olivia | 1997-01-10 | 2020-01-05 |
++--------+------------+------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT title, scost, dcost, (scost - dcost) AS cost_difference
+    -> FROM Software
+    -> ORDER BY cost_difference DESC;
++----------------------+----------+-------+-----------------+
+| title                | scost    | dcost | cost_difference |
++----------------------+----------+-------+-----------------+
+| time tracking        | 14900.40 |  5500 |         9400.40 |
+| task management      | 14500.35 |  5400 |         9100.35 |
+| library management   | 15000.75 |  6000 |         9000.75 |
+| inventory management | 15000.90 |  6300 |         8700.90 |
+| expense tracking     | 14800.85 |  6100 |         8700.85 |
+| document management  | 13900.75 |  5400 |         8500.75 |
+| hospital management  | 14000.40 |  5800 |         8200.40 |
+| inventory tracking   | 13700.65 |  5600 |         8100.65 |
+| e-commerce           | 14100.55 |  6100 |         8000.55 |
+| calendar management  | 14000.45 |  6000 |         8000.45 |
+| project management   | 13100.60 |  5700 |         7400.60 |
+| video conferencing   | 12900.95 |  5700 |         7200.95 |
+| e-learning platform  | 12500.70 |  5300 |         7200.70 |
+| ticketing system     | 12700.45 |  5900 |         6800.45 |
+| customer  management | 13500.90 |  7000 |         6500.90 |
+| social network       | 13000.80 |  6500 |         6500.80 |
+| accounting software  | 12000.25 |  5500 |         6500.25 |
+| content management   | 12100.70 |  5800 |         6300.70 |
+| ticketing system     | 11900.60 |  5800 |         6100.60 |
+| inventory management | 11000.60 |  5200 |         5800.60 |
+| point of sale        | 11500.55 |  5700 |         5800.55 |
+| project management   | 11800.70 |  6200 |         5600.70 |
+| e-commerce           | 10000.50 |  5000 |         5000.50 |
+| Ecommece             | 10000.50 |  5000 |         5000.50 |
++----------------------+----------+-------+-----------------+
+24 rows in set (0.00 sec)
+
+mysql> SELECT name
+    -> FROM Software
+    -> WHERE name LIKE '% %';
+Empty set (0.01 sec)
+
+mysql> SELECT *
+    -> FROM Programmer
+    -> WHERE salary IN (
+    ->     SELECT salary
+    ->     FROM Programmer
+    ->     GROUP BY salary
+    ->     HAVING COUNT(*) > 1
+    -> );
++-----------+------------+------------+-----+------------+------------+--------+
+| name      | dob        | doj        | sex | prof1      | prof2      | salary |
++-----------+------------+------------+-----+------------+------------+--------+
+| Alice     | 1988-10-25 | 2012-04-10 | F   | C++        | JavaScript |  55000 |
+| Emily     | 1992-07-12 | 2014-09-15 | F   | Java       | C#         |  60000 |
+| David     | 1991-04-18 | 2013-07-30 | M   | C++        | Python     |  59000 |
+| James     | 1993-06-20 | 2016-03-25 | M   | Python     | Ruby       |  57000 |
+| Alexander | 1996-09-03 | 2018-12-20 | M   | Python     | JavaScript |  59000 |
+| Abigail   | 1995-09-20 | 2017-05-25 | F   | JavaScript | Python     |  55000 |
+| Liam      | 1987-11-23 | 2010-09-28 | M   | C++        | Java       |  60000 |
+| Henry     | 1993-08-30 | 2016-11-15 | M   | JavaScript | C++        |  57000 |
+| Evelyn    | 1996-01-02 | 2018-04-05 | F   | Java       | Python     |  59000 |
++-----------+------------+------------+-----+------------+------------+--------+
+9 rows in set (0.02 sec)
+
+mysql> SELECT *
+    -> FROM Software
+    -> WHERE dev_in IN (
+    ->     SELECT name
+    ->     FROM Programmer
+    ->     WHERE sex = 'male' AND salary > 3000
+    -> );
+Empty set (0.01 sec)
+
+mysql> SELECT *
+    -> FROM Software
+    -> WHERE dev_in = 'PASCAL' AND name IN (
+    ->     SELECT name
+    ->     FROM Programmer
+    ->     WHERE sex = 'female'
+    -> );
+Empty set (0.01 sec)
+
+mysql> SELECT *
+    -> FROM Programmer
+    -> WHERE doj < '1990-01-01';
+Empty set (0.00 sec)
+
+mysql>
+mysql> SELECT *
+    -> FROM Software
+    -> WHERE dev_in = 'C' AND name IN (
+    ->     SELECT name
+    ->     FROM Programmer
+    ->     WHERE sex = 'female' AND splace = 'PRAGATHI'
+    -> );
+ERROR 1054 (42S22): Unknown column 'splace' in 'where clause'
+mysql> SELECT splace, name, COUNT(*) AS num_packages, SUM(sold) AS num_copies_sold, SUM(sold * scost) AS sales_value
+    -> FROM Software
+    -> JOIN Programmer ON Software.name = Programmer.name
+    -> GROUP BY splace, name;
+ERROR 1054 (42S22): Unknown column 'splace' in 'field list'
+mysql> SELECT s.*
+    -> FROM Software s
+    -> JOIN Programmer p ON s.name = p.name
+    -> WHERE s.dev_in = 'C' AND p.sex = 'female' AND p.splace = 'PRAGATHI';
+ERROR 1054 (42S22): Unknown column 'p.splace' in 'where clause'
+mysql>
+mysql> SELECT s.*
+    -> FROM Software s
+    -> JOIN Programmer p ON s.name = p.name
+    -> WHERE s.dev_in = 'C' AND p.sex = 'female' AND p.splace = 'PRAGATHI';
+ERROR 1054 (42S22): Unknown column 'p.splace' in 'where clause'
+mysql> SELECT * FROM STUDIES;
++---------------------+----------------+-------------------------+-------+
+| name                | splace         | course                  | ccost |
++---------------------+----------------+-------------------------+-------+
+| Somdutt Sabhari     | ABC University | PGDCA                   | 4500  |
+| Devdutt             | XYZ College    | BDPS DCS                | 5000  |
+| John Smith          | University A   | Computer Science        | 6000  |
+| Alice Johnson       | College B      | Engineering             | 7000  |
+| Bob Williams        | University C   | Business Administration | 5500  |
+| Emily Brown         | College D      | Accounting              | 4000  |
+| Michael Taylor      | University E   | Law                     | 8000  |
+| Sophia Wilson       | College F      | Medicine                | 9000  |
+| David Martinez      | University G   | Psychology              | 6500  |
+| Emma Davis          | College H      | Biology                 | 5500  |
+| James Anderson      | University I   | Chemistry               | 7000  |
+| Olivia Jackson      | College J      | Mathematics             | 6000  |
+| William Thomas      | University K   | Physics                 | 7500  |
+| Ava Garcia          | College L      | Literature              | 4500  |
+| Alexander Hernandez | University M   | History                 | 5000  |
+| Mia Lopez           | College N      | Sociology               | 5500  |
+| Ethan Gonzalez      | University O   | Anthropology            | 6500  |
+| Charlotte Rodriguez | College P      | Philosophy              | 6000  |
+| Daniel Perez        | University Q   | Political Science       | 7000  |
+| Amelia Sanchez      | College R      | Economics               | 8000  |
+| Alexander Ramirez   | University S   | Geography               | 7500  |
+| Abigail Torres      | College T      | Environmental Science   | 7000  |
+| Liam Flores         | University U   | Foreign Languages       | 6000  |
+| Harper Rivera       | College V      | Fine Arts               | 5500  |
+| Henry Cruz          | University W   | Music                   | 6500  |
+| Geetha              | BC University  | DCA                     | 4500  |
+| Geethaprabha        | BC University  | DCS                     | 4500  |
++---------------------+----------------+-------------------------+-------+
+27 rows in set (0.00 sec)
+
+mysql> SELECT s.*
+    -> FROM Software s
+    -> JOIN Programmer p ON s.name = p.name
+    -> JOIN Studies st ON p.name = st.name
+    -> WHERE s.dev_in = 'C' AND p.sex = 'female' AND st.splace = 'PRAGATHI';
+Empty set (0.00 sec)
+
+mysql> SELECT p.splace, p.name, COUNT(s.name) AS num_packages, SUM(s.sold) AS num_copies_sold, SUM(s.sold * s.scost) AS sales_value
+    -> FROM Programmer p
+    -> LEFT JOIN Software s ON p.name = s.name
+    -> GROUP BY p.splace, p.name;
+ERROR 1054 (42S22): Unknown column 'p.splace' in 'field list'
+mysql> SELECT st.splace, p.name, COUNT(s.name) AS num_packages, SUM(s.sold) AS num_copies_sold, SUM(s.sold * s.scost) AS sales_value
+    -> FROM Programmer p
+    -> LEFT JOIN Software s ON p.name = s.name
+    -> JOIN Studies st ON p.name = st.name
+    -> GROUP BY st.splace, p.name;
+Empty set (0.01 sec)
+
+mysql> SELECT s.*
+    -> FROM Software s
+    -> JOIN Programmer p ON s.name = p.name
+    -> WHERE s.dev_in = 'DBASE' AND p.sex = 'male' AND p.splace = (
+    ->     SELECT p2.splace
+    ->     FROM Programmer p2
+    ->     GROUP BY p2.splace
+    ->     ORDER BY COUNT(*) DESC
+    ->     LIMIT 1
+    -> );
+ERROR 1054 (42S22): Unknown column 'p.splace' in 'where clause'
+mysql> SELECT s.*
+    -> FROM Software s
+    -> JOIN Programmer p ON s.name = p.name
+    -> JOIN Studies st ON p.name = st.name
+    -> WHERE s.dev_in = 'DBASE' AND p.sex = 'male'
+    -> AND st.splace = (
+    ->     SELECT splace
+    ->     FROM (
+    ->         SELECT st2.splace, COUNT(*) AS num_programmers
+    ->         FROM Programmer p2
+    ->         JOIN Studies st2 ON p2.name = st2.name
+    ->         GROUP BY st2.splace
+    ->         ORDER BY COUNT(*) DESC
+    ->         LIMIT 1
+    ->     ) AS subquery
+    -> );
+Empty set (0.01 sec)
+
+mysql> SELECT s.*
+    -> FROM Software s
+    -> JOIN Programmer p ON s.name = p.name
+    -> WHERE (p.sex = 'male' AND p.dob < '1965-01-01') OR (p.sex = 'female' AND p.dob > '1975-12-31');
+Empty set (0.00 sec)
+
+mysql> SELECT s.*
+    -> FROM Software s
+    -> JOIN Programmer p ON s.name = p.name
+    -> WHERE s.dev_in NOT IN (p.prof1, p.prof2);
++-----------+----------------------+------------+----------+-------+------+
+| name      | title                | dev_in     | scost    | dcost | sold |
++-----------+----------------------+------------+----------+-------+------+
+| Alice     | library management   | Python     | 15000.75 |  6000 |   75 |
+| Emily     | social network       | JavaScript | 13000.80 |  6500 |   70 |
+| Michael   | inventory management | Java       | 11000.60 |  5200 |   55 |
+| James     | point of sale        | Java       | 11500.55 |  5700 |   68 |
+| Olivia    | task management      | Python     | 14500.35 |  5400 |   63 |
+| William   | ticketing system     | C++        | 12700.45 |  5900 |   72 |
+| Ava       | inventory tracking   | JavaScript | 13700.65 |  5600 |   62 |
+| Alexander | project management   | Java       | 11800.70 |  6200 |   78 |
+| Mia       | expense tracking     | Python     | 14800.85 |  6100 |   74 |
+| Charlotte | document management  | JavaScript | 13900.75 |  5400 |   69 |
+| Evelyn    | e-commerce           | JavaScript | 14100.55 |  6100 |   75 |
++-----------+----------------------+------------+----------+-------+------+
+11 rows in set (0.00 sec)
+
+mysql> SELECT s.*
+    -> FROM Software s
+    -> JOIN Programmer p ON s.name = p.name
+    -> WHERE s.dev_in NOT IN (p.prof1, p.prof2)
+    -> AND s.dev_in NOT IN (p.prof1, p.prof2);
++-----------+----------------------+------------+----------+-------+------+
+| name      | title                | dev_in     | scost    | dcost | sold |
++-----------+----------------------+------------+----------+-------+------+
+| Alice     | library management   | Python     | 15000.75 |  6000 |   75 |
+| Emily     | social network       | JavaScript | 13000.80 |  6500 |   70 |
+| Michael   | inventory management | Java       | 11000.60 |  5200 |   55 |
+| James     | point of sale        | Java       | 11500.55 |  5700 |   68 |
+| Olivia    | task management      | Python     | 14500.35 |  5400 |   63 |
+| William   | ticketing system     | C++        | 12700.45 |  5900 |   72 |
+| Ava       | inventory tracking   | JavaScript | 13700.65 |  5600 |   62 |
+| Alexander | project management   | Java       | 11800.70 |  6200 |   78 |
+| Mia       | expense tracking     | Python     | 14800.85 |  6100 |   74 |
+| Charlotte | document management  | JavaScript | 13900.75 |  5400 |   69 |
+| Evelyn    | e-commerce           | JavaScript | 14100.55 |  6100 |   75 |
++-----------+----------------------+------------+----------+-------+------+
+11 rows in set (0.00 sec)
+
+mysql> SELECT s.*
+    -> FROM Software s
+    -> JOIN Programmer p ON s.name = p.name
+    -> JOIN Studies st ON p.name = st.name
+    -> WHERE p.sex = 'male' AND st.splace = 'SABHARI';
+Empty set (0.01 sec)
+
+mysql> SELECT name
+    -> FROM Programmer
+    -> WHERE name NOT IN (SELECT name FROM Software);
+Empty set (0.00 sec)
+
+mysql> SELECT SUM(scost) AS total_cost
+    -> FROM Software
+    -> WHERE name IN (SELECT name FROM Programmer WHERE name LIKE '%APPLE%');
++------------+
+| total_cost |
++------------+
+|       NULL |
++------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT name, doj
+    -> FROM Programmer
+    -> GROUP BY name, doj
+    -> HAVING COUNT(*) > 1;
+Empty set (0.00 sec)
+
+mysql> SELECT name, prof2
+    -> FROM Programmer
+    -> GROUP BY prof2
+    -> HAVING COUNT(*) > 1;
+ERROR 1055 (42000): Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'aspire.Programmer.name' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+mysql> SELECT prof2
+    -> FROM Programmer
+    -> GROUP BY prof2
+    -> HAVING COUNT(*) > 1;
++------------+
+| prof2      |
++------------+
+| Python     |
+| JavaScript |
+| NULL       |
+| Java       |
+| C++        |
++------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT st.splace, SUM(s.sold * s.scost) AS total_sales_value
+    -> FROM Software s
+    -> JOIN Programmer p ON s.name = p.name
+    -> JOIN Studies st ON p.name = st.name
+    -> GROUP BY st.splace;
+Empty set (0.00 sec)
+
+mysql> SELECT st.splace
+    -> FROM Software s
+    -> JOIN Programmer p ON s.name = p.name
+    -> JOIN Studies st ON p.name = st.name
+    -> WHERE scost = (SELECT MAX(scost) FROM Software);
+Empty set (0.01 sec)
+
+mysql> SELECT prof
+    -> FROM (
+    ->     SELECT prof1 AS prof FROM Programmer
+    ->     UNION
+    ->     SELECT prof2 FROM Programmer
+    -> ) AS languages
+    -> WHERE prof NOT IN (SELECT dev_in FROM Software);
++------+
+| prof |
++------+
+| C#   |
+| SQL  |
+| Ruby |
++------+
+3 rows in set (0.01 sec)
+
+mysql> SELECT p.salary, st.course
+    -> FROM Programmer p
+    -> JOIN Software s ON p.name = s.name
+    -> JOIN Studies st ON p.name = st.name
+    -> WHERE s.sold = (SELECT MAX(sold) FROM Software);
+Empty set (0.00 sec)
+
+mysql> SELECT p.name, (st.ccost / p.salary) * 12 AS months_to_recover FROM Programmer p JOIN Studies st ON p.name = st.name;
+Empty set (0.00 sec)
+
+mysql> SELECT * FROM Software WHERE dcost = (SELECT MAX(dcost) FROM Software WHERE name IN (SELECT name FROM Programmer WHERE TIMESTAMPDIFF(YEAR, doj, CURDATE()) < 3));
+Empty set (0.00 sec)
+
+mysql> SELECT AVG(p.salary) AS average_salary FROM Programmer p JOIN Software s ON p.name = s.name WHERE s.sold * s.scost > 50000;
++----------------+
+| average_salary |
++----------------+
+|     57958.3333 |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT COUNT(*) AS num_packages FROM Software WHERE name IN (SELECT s.name FROM Studies s WHERE ccost = (SELECT MIN(ccost) FROM Studies));
++--------------+
+| num_packages |
++--------------+
+|            0 |
++--------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT COUNT(*) AS num_packages, st.splace FROM Software s JOIN Programmer p ON s.name = p.name JOIN Studies st ON p.name = st.name WHERE dcost = (SELECT MIN(dcost) FROM Software) GROUP BY st.splace;
+Empty set (0.00 sec)
+
+mysql> SELECT COUNT(*) AS num_packages FROM Software WHERE name IN (SELECT s.name FROM Software s JOIN Programmer p ON s.name = p.name WHERE p.sex = 'female' AND p.salary > (SELECT MAX(salary) FROM Programmer WHERE sex = 'male'));
++--------------+
+| num_packages |
++--------------+
+|            0 |
++--------------+
+1 row in set (0.01 sec)
+
+mysql> SELECT COUNT(*) AS num_packages FROM Software WHERE name IN (SELECT s.name FROM Software s JOIN Programmer p ON s.name = p.name WHERE p.splace = 'BDPS' AND TIMESTAMPDIFF(YEAR, p.doj, CURDATE()) = (SELECT MAX(TIMESTAMPDIFF(YEAR, doj, CURDATE())) FROM Programmer WHERE splace = 'BDPS'));
+ERROR 1054 (42S22): Unknown column 'p.splace' in 'where clause'
+mysql> SELECT COUNT(*) AS num_packages
+    -> FROM Software
+    -> WHERE name IN (
+    ->     SELECT s.name
+    ->     FROM Software s
+    ->     JOIN Programmer p ON s.name = p.name
+    ->     WHERE p.name IN (
+    ->         SELECT p2.name
+    ->         FROM Programmer p2
+    ->         WHERE p2.splace = 'BDPS'
+    ->         AND TIMESTAMPDIFF(YEAR, p2.doj, CURDATE()) = (
+    ->             SELECT MAX(TIMESTAMPDIFF(YEAR, doj, CURDATE()))
+    ->             FROM Programmer
+    ->             WHERE splace = 'BDPS'
+    ->         )
+    ->     )
+    -> );
+ERROR 1054 (42S22): Unknown column 'p2.splace' in 'where clause'
+mysql> SELECT COUNT(*) AS num_packages
+    -> FROM Software
+    -> WHERE name IN (
+    ->     SELECT s.name
+    ->     FROM Software s
+    ->     JOIN Programmer p ON s.name = p.name
+    ->     WHERE p.name IN (
+    ->         SELECT p2.name
+    ->         FROM Programmer p2
+    ->         WHERE p2.name IN (
+    ->             SELECT p3.name
+    ->             FROM Programmer p3
+    ->             WHERE p3.splace = 'BDPS'
+    ->             AND TIMESTAMPDIFF(YEAR, p3.doj, CURDATE()) = (
+    ->                 SELECT MAX(TIMESTAMPDIFF(YEAR, doj, CURDATE()))
+    ->                 FROM Programmer
+    ->                 WHERE splace = 'BDPS'
+    ->             )
+    ->         )
+    ->     )
+    -> );
+ERROR 1054 (42S22): Unknown column 'p3.splace' in 'where clause'
+mysql> SELECT COUNT(*) AS num_packages
+    -> FROM Software
+    -> WHERE name IN (
+    ->     SELECT s.name
+    ->     FROM Software s
+    ->     JOIN Programmer p ON s.name = p.name
+    ->     WHERE p.name IN (
+    ->         SELECT p2.name
+    ->         FROM Programmer p2
+    ->         WHERE p2.splace = 'BDPS'
+    ->         AND TIMESTAMPDIFF(YEAR, p2.doj, CURDATE()) = (
+    ->             SELECT MAX(TIMESTAMPDIFF(YEAR, doj, CURDATE()))
+    ->             FROM Programmer
+    ->             WHERE splace = 'BDPS'
+    ->         )
+    ->     )
+    -> );
+ERROR 1054 (42S22): Unknown column 'p2.splace' in 'where clause'
+mysql> SELECT p.name, s.splace
+    -> FROM Programmer p
+    -> LEFT JOIN Studies s ON p.name = s.name;
++-----------+--------+
+| name      | splace |
++-----------+--------+
+| John      | NULL   |
+| Alice     | NULL   |
+| Bob       | NULL   |
+| Emily     | NULL   |
+| Michael   | NULL   |
+| Sophia    | NULL   |
+| David     | NULL   |
+| Emma      | NULL   |
+| James     | NULL   |
+| Olivia    | NULL   |
+| William   | NULL   |
+| Ava       | NULL   |
+| Alexander | NULL   |
+| Mia       | NULL   |
+| Ethan     | NULL   |
+| Charlotte | NULL   |
+| Daniel    | NULL   |
+| Amelia    | NULL   |
+| Alexander | NULL   |
+| Abigail   | NULL   |
+| Liam      | NULL   |
+| Harper    | NULL   |
+| Henry     | NULL   |
+| Evelyn    | NULL   |
++-----------+--------+
+24 rows in set (0.01 sec)
+
+mysql> SELECT
+    ->     prof1 AS proficiency,
+    ->     COUNT(*) AS num_programmers,
+    ->     (SELECT COUNT(*) FROM Software WHERE dev_in = prof1) AS num_packages
+    -> FROM
+    ->     Programmer
+    -> GROUP BY
+    ->     prof1;
++-------------+-----------------+--------------+
+| proficiency | num_programmers | num_packages |
++-------------+-----------------+--------------+
+| Java        |               7 |            6 |
+| C++         |               4 |            5 |
+| Python      |               6 |            6 |
+| JavaScript  |               5 |            6 |
+| C#          |               1 |            0 |
+| SQL         |               1 |            0 |
++-------------+-----------------+--------------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT
+    ->     p.name,
+    ->     COUNT(s.name) AS num_packages
+    -> FROM
+    ->     Programmer p
+    -> LEFT JOIN
+    ->     Software s ON p.name = s.name
+    -> GROUP BY
+    ->     p.name;
++-----------+--------------+
+| name      | num_packages |
++-----------+--------------+
+| John      |            1 |
+| Alice     |            1 |
+| Bob       |            1 |
+| Emily     |            1 |
+| Michael   |            1 |
+| Sophia    |            1 |
+| David     |            1 |
+| Emma      |            1 |
+| James     |            1 |
+| Olivia    |            1 |
+| William   |            1 |
+| Ava       |            1 |
+| Alexander |            2 |
+| Mia       |            1 |
+| Ethan     |            1 |
+| Charlotte |            1 |
+| Daniel    |            1 |
+| Amelia    |            1 |
+| Abigail   |            1 |
+| Liam      |            1 |
+| Harper    |            1 |
+| Henry     |            1 |
+| Evelyn    |            1 |
++-----------+--------------+
+23 rows in set (0.00 sec)
+
+mysql> SELECT
+    ->     p.*
+    -> FROM
+    ->     Programmer p
+    -> JOIN
+    ->     Studies s ON p.name = s.name
+    -> WHERE
+    ->     s.splace = 'S.S.I.L.';
+Empty set (0.00 sec)
+
+mysql>
